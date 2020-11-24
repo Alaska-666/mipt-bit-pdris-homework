@@ -14,6 +14,10 @@ public class Users {
         return users.containsKey(username);
     }
 
+    public static boolean usernameIsValid(String username) {
+        return (username != null) && username.matches("[A-Za-z0-9_]+");
+    }
+
     public static boolean isPasswordCorrect(String username, String password) {
         if (!isUserExist(username)) {
             return false;
