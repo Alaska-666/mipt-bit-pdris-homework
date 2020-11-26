@@ -1,5 +1,7 @@
 package ru.mipt.bit.homework.springboot;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
@@ -9,8 +11,14 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController {
-    UserStorage userStorage = new UserStorage();
-    LogStorage logStorage = new LogStorage();
+    UserStorage userStorage;
+    LogStorage logStorage;
+
+    @Autowired
+    public void getBeansFromContext(ApplicationContext context) {
+        userStorage = context.getBean(UserStorage.class);
+        logStorage = context.getBean(LogStorage.class);
+    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(ModelMap model) {
