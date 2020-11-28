@@ -1,13 +1,22 @@
 package ru.mipt.bit.homework.springboot;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Configuration
 public class UserStorage {
     private final Map<String, User> users;
 
     public UserStorage() {
         users = new HashMap<>();
+    }
+
+    @Bean
+    public Map<String, User> getUsers() {
+        return users;
     }
 
     public void add(User user) {
