@@ -1,6 +1,15 @@
 package ru.mipt.bit.homework.weathercurrencyapp.services.weather;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Weather {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     public Double maxtemp_c;
     public Double mintemp_c;
     public Double avgtemp_c;
