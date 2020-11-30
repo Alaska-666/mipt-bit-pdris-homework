@@ -5,28 +5,62 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Weather {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    public Double maxtemp_c;
-    public Double mintemp_c;
-    public Double avgtemp_c;
+    @JsonProperty("maxtemp_c")
+    private Double maxTempC;
+    @JsonProperty("mintemp_c")
+    private Double minTempC;
+    @JsonProperty("avgtemp_c")
+    private Double avgTempC;
 
-    public Double maxwind_mph;
-    public Double totalprecip_mm;
-    public Double avgvis_km;
+    @JsonProperty("maxwind_mph")
+    private Double maxWindMph;
+    @JsonProperty("totalprecip_mm")
+    private Double totalPrecipMm;
+    @JsonProperty("avgvis_km")
+    private Double avgVisKm;
 
     @Override
     public String toString() {
         return "Weather{" +
-                "maxtemp_c=" + maxtemp_c +
-                ", mintemp_c=" + mintemp_c +
-                ", avgtemp_c=" + avgtemp_c +
-                ", maxwind_mph=" + maxwind_mph +
-                ", totalprecip_mm=" + totalprecip_mm +
-                ", avgvis_km=" + avgvis_km + '\'' +
+                "maxTempC=" + maxTempC +
+                ", minTempC=" + minTempC +
+                ", avgTempC=" + avgTempC +
+                ", maxWindMph=" + maxWindMph +
+                ", totalPrecipMm=" + totalPrecipMm +
+                ", avgVisKm=" + avgVisKm +
                 '}';
+    }
+
+    public Double getMaxTempC() {
+        return maxTempC;
+    }
+
+    public Double getMinTempC() {
+        return minTempC;
+    }
+
+    public Double getAvgTempC() {
+        return avgTempC;
+    }
+
+    public Double getMaxWindMph() {
+        return maxWindMph;
+    }
+
+    public Double getTotalPrecipMm() {
+        return totalPrecipMm;
+    }
+
+    public Double getAvgVisKm() {
+        return avgVisKm;
     }
 }

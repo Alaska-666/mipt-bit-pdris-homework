@@ -50,7 +50,6 @@ public class CurrencyService {
 
     public List<Double> getDollarCurrency(int days) {
         return IntStream.range(0, days)
-                .map(i -> -i).sorted().map(i -> -i)
                 .mapToObj(this::getDollarCurrencyDaysBefore)
                 .collect(Collectors.toList());
     }

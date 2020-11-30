@@ -23,7 +23,7 @@ public class PredictService {
 
     private void addData(SimpleRegression regression, List<Weather> weatherData, List<Double> currencyData) {
         IntStream.range(0, numberOfDaysToPredict)
-                .forEach(i -> regression.addData(weatherData.get(i).avgtemp_c, currencyData.get(i)));
+                .forEach(i -> regression.addData(weatherData.get(i).getAvgTempC(), currencyData.get(i)));
     }
 
     public Double getPredictedDollarExchangeRate() {
@@ -31,6 +31,6 @@ public class PredictService {
         List<Weather> weatherData = weatherService.getWeather(numberOfDaysToPredict, cityToPredict);
         List<Double> currencyData = currencyService.getDollarCurrency(numberOfDaysToPredict);
         addData(regression, weatherData, currencyData);
-        return regression.predict(weatherData.get(numberOfDaysToPredict - 1).avgtemp_c);
+        return regression.predict(weatherData.get(0).getAvgTempC());
     }
 }
