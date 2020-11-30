@@ -21,43 +21,22 @@ import java.util.stream.IntStream;
 public class WeatherService {
     @Value("${api.weather.key}")
     private String apiKey;
-    private final List<String> properties = Arrays.asList("maxtemp_c", "mintemp_c", "avgtemp_c", "maxwind_mph",
-            "totalprecip_mm", "avgvis_km");
 
-    private String getResponseFromUrl(String url) {
-        ResponseEntity<String> response = new RestTemplate().getForEntity(url, String.class);
-        return response.getBody();
+    private Weather getResponseFromUrl(String url) {
+        JsonWeatherResponse response = new RestTemplate().getForObject(url, JsonWeatherResponse.class);
+        assert response != null;
+        return response.forecast.forecastDay.get(0).weather;
     }
 
     private Weather getWeatherDaysBefore(int daysBefore, String city) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String url = "http://api.weatherapi.com/v1/history.xml?key=" + apiKey + "&q=" + city + "&dt=" + dtf.format(now.minusDays(daysBefore));
-        return getWeatherProperties(getResponseFromUrl(url));
-    }
-
-    private Weather getWeatherProperties(String body) {
-        Weather weather = new Weather();
-        Document document;
-        try {
-            document = DocumentHelper.parseText(body);
-        } catch (DocumentException ignored) {
-            return weather;
-        }
-
-        for (String property : properties) {
-            Node node = document.selectSingleNode("//" + property);
-            try {
-                Field field = Weather.class.getField(property);
-                field.set(weather, new Double(node.getText()));
-            } catch (Exception ignored) {}
-        }
-        return weather;
+        String url = "http://api.weatherapi.com/v1/history.json?key=" + apiKey + "&q=" + city + "&dt=" + dtf.format(now.minusDays(daysBefore));
+        return getResponseFromUrl(url);
     }
 
     public List<Weather> getWeather(int days, String city) {
         return IntStream.range(0, days)
-                .map(i -> -i).sorted().map(i -> -i)
                 .mapToObj(i -> getWeatherDaysBefore(i, city))
                 .collect(Collectors.toList());
     }
