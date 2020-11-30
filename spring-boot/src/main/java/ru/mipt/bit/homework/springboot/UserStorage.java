@@ -1,12 +1,12 @@
 package ru.mipt.bit.homework.springboot;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+@Service
 public class UserStorage {
     private final Map<String, User> users;
 
@@ -14,7 +14,6 @@ public class UserStorage {
         users = new HashMap<>();
     }
 
-    @Bean
     public Map<String, User> getUsers() {
         return users;
     }

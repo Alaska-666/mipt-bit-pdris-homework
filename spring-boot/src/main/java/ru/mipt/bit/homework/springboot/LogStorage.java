@@ -1,14 +1,13 @@
 package ru.mipt.bit.homework.springboot;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
+@Service
 public class LogStorage {
-    private List<String> logs;
+    private final List<String> logs;
 
     public LogStorage() {
         logs = new ArrayList<>();
@@ -18,7 +17,6 @@ public class LogStorage {
         logs.add(String.format("Username: %s, action: %s, status: %s", user.getUsername(), action, status));
     }
 
-    @Bean
     public List<String> getLogs() {
         return logs;
     }
