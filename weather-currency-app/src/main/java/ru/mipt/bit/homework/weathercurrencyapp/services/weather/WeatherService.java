@@ -1,19 +1,17 @@
 package ru.mipt.bit.homework.weathercurrencyapp.services.weather;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Node;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntity;
+import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntityId;
+import ru.mipt.bit.homework.weathercurrencyapp.repositories.WeatherRepository;
 
-import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -22,19 +20,25 @@ public class WeatherService {
     @Value("${api.weather.key}")
     private String apiKey;
 
-    private Weather getResponseFromUrl(String url) {
+    @Autowired
+    private WeatherRepository weatherRepository;
+
+    private Weather getWeatherDaysBefore(int daysBefore, String city) {
+        String date = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now().minusDays(daysBefore));
+        Optional<WeatherEntity> weatherEntity = weatherRepository.findById(new WeatherEntityId(date, city));
+        if (weatherEntity.isPresent()) {
+            return weatherEntity.get().getWeather();
+        }
+        return getWeatherProperties(date, city);
+    }
+
+    private Weather getWeatherProperties(String date, String city) {
+        String url = "http://api.weatherapi.com/v1/history.json?key=" + apiKey + "&q=" + city + "&dt=" + date;
         JsonWeatherResponse response = new RestTemplate().getForObject(url, JsonWeatherResponse.class);
         if (response == null) {
             return new Weather();
         }
         return response.forecast.forecastDay.get(0).weather;
-    }
-
-    private Weather getWeatherDaysBefore(int daysBefore, String city) {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String url = "http://api.weatherapi.com/v1/history.json?key=" + apiKey + "&q=" + city + "&dt=" + dtf.format(now.minusDays(daysBefore));
-        return getResponseFromUrl(url);
     }
 
     public List<Weather> getWeather(int days, String city) {

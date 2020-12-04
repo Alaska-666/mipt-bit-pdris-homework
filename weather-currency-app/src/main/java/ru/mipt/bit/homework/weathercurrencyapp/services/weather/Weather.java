@@ -1,11 +1,19 @@
 package ru.mipt.bit.homework.weathercurrencyapp.services.weather;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Weather {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     @JsonProperty("maxtemp_c")
     private Double maxTempC;
     @JsonProperty("mintemp_c")
