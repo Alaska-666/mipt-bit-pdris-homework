@@ -24,7 +24,9 @@ public class WeatherService {
 
     private Weather getResponseFromUrl(String url) {
         JsonWeatherResponse response = new RestTemplate().getForObject(url, JsonWeatherResponse.class);
-        assert response != null;
+        if (response == null) {
+            return new Weather();
+        }
         return response.forecast.forecastDay.get(0).weather;
     }
 

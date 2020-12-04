@@ -31,7 +31,9 @@ public class CurrencyService {
 
     private Double getDollarValue(String body) throws DocumentException {
         List<Node> nodes = DocumentHelper.parseText(body).selectNodes("//Valute[@ID='" + Dollar.id + "']/Value");
-        assert !nodes.isEmpty();
+        if (nodes.isEmpty()) {
+            return 0.0;
+        }
         return new Double(nodes.get(0).getText().replace(",", "."));
     }
 
