@@ -1,8 +1,10 @@
 package ru.mipt.bit.homework.weathercurrencyapp.entities;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class WeatherEntityId implements Serializable {
     private String date;
     private String city;

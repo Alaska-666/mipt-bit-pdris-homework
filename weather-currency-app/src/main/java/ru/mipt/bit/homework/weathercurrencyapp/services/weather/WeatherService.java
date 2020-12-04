@@ -8,7 +8,7 @@ import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntity;
 import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntityId;
 import ru.mipt.bit.homework.weathercurrencyapp.repositories.WeatherRepository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
@@ -24,12 +24,9 @@ public class WeatherService {
     private WeatherRepository weatherRepository;
 
     private Weather getWeatherDaysBefore(int daysBefore, String city) {
-        String date = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now().minusDays(daysBefore));
+        String date = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.now().minusDays(daysBefore));
         Optional<WeatherEntity> weatherEntity = weatherRepository.findById(new WeatherEntityId(date, city));
-        if (weatherEntity.isPresent()) {
-            return weatherEntity.get().getWeather();
-        }
-        return getWeatherProperties(date, city);
+        return weatherEntity.map(WeatherEntity::getWeather).orElse(getWeatherProperties(date, city));
     }
 
     private Weather getWeatherProperties(String date, String city) {

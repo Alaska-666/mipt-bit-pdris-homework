@@ -7,19 +7,14 @@ import javax.persistence.*;
 
 @Entity
 @Configurable
-@IdClass(WeatherEntityId.class)
 public class WeatherEntity {
-    @Id
-    private String date;
-    @Id
-    private String city;
-
+    @EmbeddedId
+    private WeatherEntityId id;
     @OneToOne(cascade= CascadeType.ALL)
     private Weather weather;
 
-    public WeatherEntity(String date, String city, Weather weather) {
-        this.date = date;
-        this.city = city;
+    public WeatherEntity(WeatherEntityId id, Weather weather) {
+        this.id = id;
         this.weather = weather;
     }
 
@@ -29,20 +24,7 @@ public class WeatherEntity {
         return weather;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    @Override
-    public String toString() {
-        return "WeatherEntity{" +
-                "date='" + date + '\'' +
-                ", city='" + city + '\'' +
-                ", weather=" + weather +
-                '}';
+    public WeatherEntityId getId() {
+        return id;
     }
 }

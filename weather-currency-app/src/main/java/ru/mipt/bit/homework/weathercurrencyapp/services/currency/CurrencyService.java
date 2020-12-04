@@ -1,6 +1,6 @@
 package ru.mipt.bit.homework.weathercurrencyapp.services.currency;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
@@ -26,22 +26,21 @@ public class CurrencyService {
     }
 
     private Double getDollarCurrencyDaysBefore(int daysBefore) {
-        String date = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDateTime.now().minusDays(daysBefore));
+        String date = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDate.now().minusDays(daysBefore));
         Optional<CurrencyEntity> currency = currencyRepository.findById(date);
-        if (currency.isPresent()) {
-            return currency.get().getRate();
-        }
-        try {
-            return getDollarValue(date);
-        } catch (Exception ignored) {
-            return 0.0;
-        }
+        return currency.map(CurrencyEntity::getRate).orElse(getDollarValue(date));
     }
 
-    private Double getDollarValue(String date) throws DocumentException {
+    private Double getDollarValue(String date) {
         String urlPattern = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=";
         String body = getResponseFromUrl(urlPattern + date);
-        List<Node> nodes = DocumentHelper.parseText(body).selectNodes("//Valute[@ID='" + Dollar.id + "']/Value");
+        List<Node> nodes;
+        try {
+            nodes = DocumentHelper.parseText(body).selectNodes("//Valute[@ID='" + Dollar.id + "']/Value");
+        } catch (DocumentException ignored) {
+            return 0.0;
+        }
+
         if (nodes.isEmpty()) {
             return 0.0;
         }
