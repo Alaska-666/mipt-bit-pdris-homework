@@ -28,7 +28,7 @@ public class CurrencyService {
     private Double getDollarCurrencyDaysBefore(int daysBefore) {
         String date = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDate.now().minusDays(daysBefore));
         Optional<CurrencyEntity> currency = currencyRepository.findById(date);
-        return currency.map(CurrencyEntity::getRate).orElse(getDollarValue(date));
+        return currency.map(CurrencyEntity::getRate).orElseGet(() -> getDollarValue(date));
     }
 
     private Double getDollarValue(String date) {

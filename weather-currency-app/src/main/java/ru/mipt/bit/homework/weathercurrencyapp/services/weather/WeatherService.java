@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import ru.mipt.bit.homework.weathercurrencyapp.entities.CurrencyEntity;
 import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntity;
 import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntityId;
 import ru.mipt.bit.homework.weathercurrencyapp.repositories.WeatherRepository;
@@ -26,7 +27,7 @@ public class WeatherService {
     private Weather getWeatherDaysBefore(int daysBefore, String city) {
         String date = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.now().minusDays(daysBefore));
         Optional<WeatherEntity> weatherEntity = weatherRepository.findById(new WeatherEntityId(date, city));
-        return weatherEntity.map(WeatherEntity::getWeather).orElse(getWeatherProperties(date, city));
+        return weatherEntity.map(WeatherEntity::getWeather).orElseGet(() -> getWeatherProperties(date, city));
     }
 
     private Weather getWeatherProperties(String date, String city) {
