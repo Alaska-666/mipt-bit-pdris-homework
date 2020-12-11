@@ -1,0 +1,986 @@
+{
+	"id": "fe2778fa-9d12-4c31-be48-7b2d4b2a0fb4",
+	"name": "weatherCurrencyAppTests",
+	"timestamp": "2020-12-11T08:55:17.978Z",
+	"collection_id": "54a13344-4776-4103-ac17-e23c717d9b6d",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 250,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "ad3a7ad6-42a7-4578-91eb-bdfcd6b49c9d",
+			"name": "requestWithoutDate",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array has only 1 value": true,
+				"The result array contains only 1 number": true,
+				"The result array contains only 1 number greater than 70": true,
+				"The result array contains only 1 number less than 80": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array has only 1 value": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only 1 number": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only 1 number greater than 70": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only 1 number less than 80": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				10,
+				6,
+				10,
+				4,
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only 1 number": true,
+					"The result array contains only 1 number greater than 70": true,
+					"The result array contains only 1 number less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only 1 number": true,
+					"The result array contains only 1 number greater than 70": true,
+					"The result array contains only 1 number less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only 1 number": true,
+					"The result array contains only 1 number greater than 70": true,
+					"The result array contains only 1 number less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only 1 number": true,
+					"The result array contains only 1 number greater than 70": true,
+					"The result array contains only 1 number less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only 1 number": true,
+					"The result array contains only 1 number greater than 70": true,
+					"The result array contains only 1 number less than 80": true
+				}
+			]
+		},
+		{
+			"id": "16dc06c1-f82f-4920-93f6-84d72f8ce35b",
+			"name": "currencyForMinusDays",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array is empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array is empty": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				9,
+				8,
+				6,
+				5,
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				}
+			]
+		},
+		{
+			"id": "10222465-c289-479e-9386-6fdd34c09c66",
+			"name": "currencyForDays",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array has only 10 value": true,
+				"The result array contains only numbers": true,
+				"The result array contains only numbers greater than 70": true,
+				"The result array contains only numbers less than 80": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array has only 10 value": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only numbers": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only numbers greater than 70": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only numbers less than 80": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				17,
+				14,
+				14,
+				8,
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 10 value": true,
+					"The result array contains only numbers": true,
+					"The result array contains only numbers greater than 70": true,
+					"The result array contains only numbers less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 10 value": true,
+					"The result array contains only numbers": true,
+					"The result array contains only numbers greater than 70": true,
+					"The result array contains only numbers less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 10 value": true,
+					"The result array contains only numbers": true,
+					"The result array contains only numbers greater than 70": true,
+					"The result array contains only numbers less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 10 value": true,
+					"The result array contains only numbers": true,
+					"The result array contains only numbers greater than 70": true,
+					"The result array contains only numbers less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 10 value": true,
+					"The result array contains only numbers": true,
+					"The result array contains only numbers greater than 70": true,
+					"The result array contains only numbers less than 80": true
+				}
+			]
+		},
+		{
+			"id": "1c5a73c6-3fb3-4885-95cd-c65498c9a5ca",
+			"name": "currencyFor0Days",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array is empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array is empty": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				5,
+				5,
+				4,
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				}
+			]
+		},
+		{
+			"id": "b67193d4-715a-4f6b-b170-9a8be4890937",
+			"name": "weatherWithoutParams",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array has only 1 value": true,
+				"The result array contains only objects with desired properties": true,
+				"Properties are numeric and in the right interval": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array has only 1 value": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only objects with desired properties": {
+					"pass": 5,
+					"fail": 0
+				},
+				"Properties are numeric and in the right interval": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				285,
+				17,
+				56,
+				16,
+				20
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				}
+			]
+		},
+		{
+			"id": "11e88088-adaf-4073-8260-cf42548be03e",
+			"name": "weatherWithCity",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array has only 1 value": true,
+				"The result array contains only objects with desired properties": true,
+				"Properties are numeric and in the right interval": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array has only 1 value": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only objects with desired properties": {
+					"pass": 5,
+					"fail": 0
+				},
+				"Properties are numeric and in the right interval": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				268,
+				17,
+				19,
+				14,
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 1 value": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				}
+			]
+		},
+		{
+			"id": "367f1e34-4e80-41c5-aa04-14e091bd1f67",
+			"name": "weatherWithDaysMore",
+			"time": 427,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				1622,
+				331,
+				371,
+				429,
+				427
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "da5c8039-8d6e-4cb9-85a4-4e7f83c4481a",
+			"name": "weatherWithIncorrectCity",
+			"time": 61,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				136,
+				18,
+				27,
+				248,
+				61
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				},
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "1ec0e888-d443-4035-a9e4-f60dde8d7d18",
+			"name": "weatherWithMinusDays",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array is empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array is empty": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				5,
+				4,
+				7,
+				8,
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				}
+			]
+		},
+		{
+			"id": "8f6c4e28-7d02-4815-aa11-bf3b7d801b8e",
+			"name": "weatherWith0days",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array is empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array is empty": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				12,
+				5,
+				10,
+				4,
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array is empty": true
+				}
+			]
+		},
+		{
+			"id": "a1fea73a-0f7a-4037-afc2-f1ccc047d502",
+			"name": "weatherWithDays",
+			"time": 434,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array has only 8 values": true,
+				"The result array contains only objects with desired properties": true,
+				"Properties are numeric and in the right interval": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array has only 8 values": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only objects with desired properties": {
+					"pass": 5,
+					"fail": 0
+				},
+				"Properties are numeric and in the right interval": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				355,
+				404,
+				300,
+				282,
+				434
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				}
+			]
+		},
+		{
+			"id": "2bccf99f-1e41-4d05-ba6a-86d42e078bc2",
+			"name": "weatherWithDaysAndCity",
+			"time": 170,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is array": true,
+				"The result array has only 8 values": true,
+				"The result array contains only objects with desired properties": true,
+				"Properties are numeric and in the right interval": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is array": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array has only 8 values": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The result array contains only objects with desired properties": {
+					"pass": 5,
+					"fail": 0
+				},
+				"Properties are numeric and in the right interval": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				978,
+				207,
+				360,
+				155,
+				170
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is array": true,
+					"The result array has only 8 values": true,
+					"The result array contains only objects with desired properties": true,
+					"Properties are numeric and in the right interval": true
+				}
+			]
+		},
+		{
+			"id": "75b1af29-439d-493c-ab5c-014fe3dd0cfc",
+			"name": "predictWithoutParams",
+			"time": 404,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The response json is number": true,
+				"The number is greater than 70": true,
+				"The number is less than 80": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The response json is number": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The number is greater than 70": {
+					"pass": 5,
+					"fail": 0
+				},
+				"The number is less than 80": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				407,
+				420,
+				236,
+				280,
+				404
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The response json is number": true,
+					"The number is greater than 70": true,
+					"The number is less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is number": true,
+					"The number is greater than 70": true,
+					"The number is less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is number": true,
+					"The number is greater than 70": true,
+					"The number is less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is number": true,
+					"The number is greater than 70": true,
+					"The number is less than 80": true
+				},
+				{
+					"Status code is 200": true,
+					"The response json is number": true,
+					"The number is greater than 70": true,
+					"The number is less than 80": true
+				}
+			]
+		}
+	],
+	"count": 5,
+	"totalTime": 10000,
+	"collection": {
+		"requests": [
+			{
+				"id": "ad3a7ad6-42a7-4578-91eb-bdfcd6b49c9d",
+				"method": "GET"
+			},
+			{
+				"id": "16dc06c1-f82f-4920-93f6-84d72f8ce35b",
+				"method": "GET"
+			},
+			{
+				"id": "10222465-c289-479e-9386-6fdd34c09c66",
+				"method": "GET"
+			},
+			{
+				"id": "1c5a73c6-3fb3-4885-95cd-c65498c9a5ca",
+				"method": "GET"
+			},
+			{
+				"id": "b67193d4-715a-4f6b-b170-9a8be4890937",
+				"method": "GET"
+			},
+			{
+				"id": "11e88088-adaf-4073-8260-cf42548be03e",
+				"method": "GET"
+			},
+			{
+				"id": "367f1e34-4e80-41c5-aa04-14e091bd1f67",
+				"method": "GET"
+			},
+			{
+				"id": "da5c8039-8d6e-4cb9-85a4-4e7f83c4481a",
+				"method": "GET"
+			},
+			{
+				"id": "1ec0e888-d443-4035-a9e4-f60dde8d7d18",
+				"method": "GET"
+			},
+			{
+				"id": "8f6c4e28-7d02-4815-aa11-bf3b7d801b8e",
+				"method": "GET"
+			},
+			{
+				"id": "a1fea73a-0f7a-4037-afc2-f1ccc047d502",
+				"method": "GET"
+			},
+			{
+				"id": "2bccf99f-1e41-4d05-ba6a-86d42e078bc2",
+				"method": "GET"
+			},
+			{
+				"id": "75b1af29-439d-493c-ab5c-014fe3dd0cfc",
+				"method": "GET"
+			}
+		]
+	}
+}

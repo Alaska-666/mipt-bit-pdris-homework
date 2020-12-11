@@ -1,0 +1,865 @@
+{
+	"info": {
+		"_postman_id": "54a13344-4776-4103-ac17-e23c717d9b6d",
+		"name": "weatherCurrencyAppTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "currency",
+			"item": [
+				{
+					"name": "requestWithoutDate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b30e159-7e8d-41d9-af59-17aeef3cc747",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array has only 1 value\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(1);",
+									"});",
+									"",
+									"pm.test(\"The result array contains only 1 number\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(1);",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"number\");",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"The result array contains only 1 number greater than 70\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(1);",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"number\");",
+									"        pm.expect(item).to.greaterThan(70);",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"The result array contains only 1 number less than 80\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(1);",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"number\");",
+									"        pm.expect(item).to.lessThan(80);",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/currency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"currency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currencyForMinusDays",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "476f3030-f6a8-4b1e-bb19-50bd189644c6",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array is empty\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.empty;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/currency?days=-7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"currency"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "-7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currencyForDays",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "09b785fb-5b36-4f4d-a21a-cad44a70636a",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array has only 10 value\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(9);",
+									"});",
+									"",
+									"pm.test(\"The result array contains only numbers\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"number\");",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"The result array contains only numbers greater than 70\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"number\");",
+									"        pm.expect(item).to.greaterThan(70);",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"The result array contains only numbers less than 80\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"number\");",
+									"        pm.expect(item).to.lessThan(80);",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/currency?days=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"currency"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currencyFor0Days",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4593e0da-a6eb-4e7d-85c5-0e9f4e0514cf",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array is empty\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.empty;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/currency?days=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"currency"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "weather",
+			"item": [
+				{
+					"name": "weatherWithoutParams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "704ee130-ced5-47b7-944d-d0afdd4bec8c",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array has only 1 value\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(1);",
+									"});",
+									"",
+									"pm.test(\"The result array contains only objects with desired properties\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"object\");",
+									"        pm.expect(item).to.have.property(\"maxtemp_c\");",
+									"        pm.expect(item).to.have.property(\"mintemp_c\");",
+									"        pm.expect(item).to.have.property(\"avgtemp_c\");",
+									"        pm.expect(item).to.have.property(\"maxwind_mph\");",
+									"        pm.expect(item).to.have.property(\"totalprecip_mm\");",
+									"        pm.expect(item).to.have.property(\"avgvis_km\");",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"Properties are numeric and in the right interval\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item.maxtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.maxtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.maxtemp_c).to.be.greaterThan(-30);",
+									"",
+									"        pm.expect(item.mintemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.mintemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(item.maxtemp_c);",
+									"",
+									"        pm.expect(item.avgtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(item.maxtemp_c);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(item.mintemp_c);",
+									"",
+									"        pm.expect(item.maxwind_mph).to.be.an(\"number\");",
+									"        pm.expect(item.maxwind_mph).to.be.lessThan(20);",
+									"        pm.expect(item.maxwind_mph).to.be.at.least(0);",
+									"",
+									"        pm.expect(item.totalprecip_mm).to.be.an(\"number\");",
+									"        pm.expect(item.totalprecip_mm).to.be.lessThan(15);",
+									"        pm.expect(item.totalprecip_mm).to.be.at.least(0);",
+									"",
+									"        pm.expect(item.avgvis_km).to.be.an(\"number\");",
+									"        pm.expect(item.avgvis_km).to.be.lessThan(15);",
+									"        pm.expect(item.avgvis_km).to.be.at.least(0);",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWithCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "515f97a1-5cdf-4898-9c21-c108e50b8e26",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array has only 1 value\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(1);",
+									"});",
+									"",
+									"pm.test(\"The result array contains only objects with desired properties\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"object\");",
+									"        pm.expect(item).to.have.property(\"maxtemp_c\");",
+									"        pm.expect(item).to.have.property(\"mintemp_c\");",
+									"        pm.expect(item).to.have.property(\"avgtemp_c\");",
+									"        pm.expect(item).to.have.property(\"maxwind_mph\");",
+									"        pm.expect(item).to.have.property(\"totalprecip_mm\");",
+									"        pm.expect(item).to.have.property(\"avgvis_km\");",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"Properties are numeric and in the right interval\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item.maxtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.maxtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.maxtemp_c).to.be.greaterThan(-30);",
+									"",
+									"        pm.expect(item.mintemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.mintemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(item.maxtemp_c);",
+									"",
+									"        pm.expect(item.avgtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(item.maxtemp_c);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(item.mintemp_c);",
+									"",
+									"        pm.expect(item.maxwind_mph).to.be.an(\"number\");",
+									"        pm.expect(item.maxwind_mph).to.be.lessThan(20);",
+									"        pm.expect(item.maxwind_mph).to.be.greaterThan(0);",
+									"",
+									"        pm.expect(item.totalprecip_mm).to.be.an(\"number\");",
+									"        pm.expect(item.totalprecip_mm).to.be.lessThan(15);",
+									"        pm.expect(item.totalprecip_mm).to.be.greaterThan(0);",
+									"",
+									"        pm.expect(item.avgvis_km).to.be.an(\"number\");",
+									"        pm.expect(item.avgvis_km).to.be.lessThan(15);",
+									"        pm.expect(item.avgvis_km).to.be.greaterThan(0);",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?city=Paris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "Paris"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWithDaysMore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cf490313-edd7-4a51-8a19-4654e221b2df",
+								"exec": [
+									"pm.test(\"Status code is 500\", () => {",
+									"    pm.expect(pm.response.code).to.eql(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?days=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWithIncorrectCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "568c3ca7-fa2b-4610-8861-a978c6d2a348",
+								"exec": [
+									"pm.test(\"Status code is 500\", () => {",
+									"    pm.expect(pm.response.code).to.eql(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?city=Magix",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "Magix"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWithMinusDays",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba79064d-4e31-47c2-881c-c036efc4a16e",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array is empty\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.empty;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?days=-6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "-6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWith0days",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d7e54567-4a04-403f-b069-b83d54309606",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array is empty\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.empty;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?days=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWithDays",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4b11297b-86e7-4d4a-bdcf-8771f53c83a5",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array has only 8 values\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(8);",
+									"});",
+									"",
+									"pm.test(\"The result array contains only objects with desired properties\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"object\");",
+									"        pm.expect(item).to.have.property(\"maxtemp_c\");",
+									"        pm.expect(item).to.have.property(\"mintemp_c\");",
+									"        pm.expect(item).to.have.property(\"avgtemp_c\");",
+									"        pm.expect(item).to.have.property(\"maxwind_mph\");",
+									"        pm.expect(item).to.have.property(\"totalprecip_mm\");",
+									"        pm.expect(item).to.have.property(\"avgvis_km\");",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"Properties are numeric and in the right interval\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item.maxtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.maxtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.maxtemp_c).to.be.greaterThan(-30);",
+									"",
+									"        pm.expect(item.mintemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.mintemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(item.maxtemp_c);",
+									"",
+									"        pm.expect(item.avgtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(item.maxtemp_c);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(item.mintemp_c);",
+									"",
+									"        pm.expect(item.maxwind_mph).to.be.an(\"number\");",
+									"        pm.expect(item.maxwind_mph).to.be.lessThan(20);",
+									"        pm.expect(item.maxwind_mph).to.be.at.least(0);",
+									"",
+									"        pm.expect(item.totalprecip_mm).to.be.an(\"number\");",
+									"        pm.expect(item.totalprecip_mm).to.be.lessThan(15);",
+									"        pm.expect(item.totalprecip_mm).to.be.at.least(0);",
+									"",
+									"        pm.expect(item.avgvis_km).to.be.an(\"number\");",
+									"        pm.expect(item.avgvis_km).to.be.lessThan(15);",
+									"        pm.expect(item.avgvis_km).to.be.at.least(0);",
+									"        pm.expect(item.avgvis_km).to.be.greaterThan(0);",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?days=8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weatherWithDaysAndCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83eca1d3-c921-4fb5-999a-e343a2744a87",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is array\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"The result array has only 8 values\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.length).to.equal(5);",
+									"});",
+									"",
+									"pm.test(\"The result array contains only objects with desired properties\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item).to.be.an(\"object\");",
+									"        pm.expect(item).to.have.property(\"maxtemp_c\");",
+									"        pm.expect(item).to.have.property(\"mintemp_c\");",
+									"        pm.expect(item).to.have.property(\"avgtemp_c\");",
+									"        pm.expect(item).to.have.property(\"maxwind_mph\");",
+									"        pm.expect(item).to.have.property(\"totalprecip_mm\");",
+									"        pm.expect(item).to.have.property(\"avgvis_km\");",
+									"    })",
+									"});",
+									"",
+									"pm.test(\"Properties are numeric and in the right interval\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    _.each(responseJson, (item) => {",
+									"        pm.expect(item.maxtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.maxtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.maxtemp_c).to.be.greaterThan(-30);",
+									"",
+									"        pm.expect(item.mintemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.mintemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.mintemp_c).to.be.lessThan(item.maxtemp_c);",
+									"",
+									"        pm.expect(item.avgtemp_c).to.be.an(\"number\");",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(30);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(-30);",
+									"        pm.expect(item.avgtemp_c).to.be.lessThan(item.maxtemp_c);",
+									"        pm.expect(item.avgtemp_c).to.be.greaterThan(item.mintemp_c);",
+									"",
+									"        pm.expect(item.maxwind_mph).to.be.an(\"number\");",
+									"        pm.expect(item.maxwind_mph).to.be.lessThan(20);",
+									"        pm.expect(item.maxwind_mph).to.be.at.least(0);",
+									"",
+									"        pm.expect(item.totalprecip_mm).to.be.an(\"number\");",
+									"        pm.expect(item.totalprecip_mm).to.be.lessThan(15);",
+									"        pm.expect(item.totalprecip_mm).to.be.at.least(0);",
+									"",
+									"        pm.expect(item.avgvis_km).to.be.an(\"number\");",
+									"        pm.expect(item.avgvis_km).to.be.lessThan(15);",
+									"        pm.expect(item.avgvis_km).to.be.at.least(0);",
+									"        pm.expect(item.avgvis_km).to.be.greaterThan(0);",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/weather?days=5&city=Saint-Petersburg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "5"
+								},
+								{
+									"key": "city",
+									"value": "Saint-Petersburg"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "predict",
+			"item": [
+				{
+					"name": "predictWithoutParams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4f153b9-0892-445d-8264-9c2a342ce982",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"pm.test(\"The response json is number\", () => {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an(\"number\");",
+									"});",
+									"",
+									"pm.test(\"The number is greater than 70\", () => {",
+									"    pm.expect(pm.response.json()).to.greaterThan(70);",
+									"});",
+									"",
+									"pm.test(\"The number is less than 80\", () => {",
+									"    pm.expect(pm.response.json()).to.lessThan(80);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/predict",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
