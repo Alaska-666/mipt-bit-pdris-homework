@@ -15,18 +15,29 @@ public class Weather {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @JsonProperty("maxtemp_c")
-    private Double maxTempC;
+    private double maxTempC;
     @JsonProperty("mintemp_c")
-    private Double minTempC;
+    private double minTempC;
     @JsonProperty("avgtemp_c")
-    private Double avgTempC;
+    private double avgTempC;
 
     @JsonProperty("maxwind_mph")
-    private Double maxWindMph;
+    private double maxWindMph;
     @JsonProperty("totalprecip_mm")
-    private Double totalPrecipMm;
+    private double totalPrecipMm;
     @JsonProperty("avgvis_km")
-    private Double avgVisKm;
+    private double avgVisKm;
+
+    public Weather(double maxTempC, double minTempC, double avgTempC, double maxWindMph, double totalPrecipMm, double avgVisKm) {
+        this.maxTempC = maxTempC;
+        this.minTempC = minTempC;
+        this.avgTempC = avgTempC;
+        this.maxWindMph = maxWindMph;
+        this.totalPrecipMm = totalPrecipMm;
+        this.avgVisKm = avgVisKm;
+    }
+
+    public Weather() {}
 
     @Override
     public String toString() {
