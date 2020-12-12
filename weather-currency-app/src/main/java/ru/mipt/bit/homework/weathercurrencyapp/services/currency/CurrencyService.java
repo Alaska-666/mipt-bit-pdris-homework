@@ -36,7 +36,7 @@ public class CurrencyService {
         String body = getResponseFromUrl(urlPattern + date);
         List<Node> nodes;
         try {
-            nodes = DocumentHelper.parseText(body).selectNodes("//Valute[@ID='" + Dollar.id + "']/Value");
+            nodes = DocumentHelper.parseText(body).selectNodes("//Valute[@ID='" + Dollar.ID + "']/Value");
         } catch (DocumentException ignored) {
             return 0.0;
         }

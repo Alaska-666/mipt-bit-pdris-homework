@@ -13,8 +13,8 @@ import java.util.stream.IntStream;
 public class PredictService {
     private final WeatherService weatherService;
     private final CurrencyService currencyService;
-    private static final int numberOfDaysToPredict = 8;
-    private static final String cityToPredict = "Moscow";
+    private static final int NUMBER_OF_DAYS_TO_PREDICT = 8;
+    private static final String CITY_TO_PREDICT = "Moscow";
 
     public PredictService(WeatherService weatherService, CurrencyService currencyService) {
         this.weatherService = weatherService;
@@ -22,14 +22,14 @@ public class PredictService {
     }
 
     private void addData(SimpleRegression regression, List<Weather> weatherData, List<Double> currencyData) {
-        IntStream.range(0, numberOfDaysToPredict)
+        IntStream.range(0, NUMBER_OF_DAYS_TO_PREDICT)
                 .forEach(i -> regression.addData(weatherData.get(i).getAvgTempC(), currencyData.get(i)));
     }
 
     public Double getPredictedDollarExchangeRate() {
         SimpleRegression regression = new SimpleRegression();
-        List<Weather> weatherData = weatherService.getWeather(numberOfDaysToPredict, cityToPredict);
-        List<Double> currencyData = currencyService.getDollarCurrency(numberOfDaysToPredict);
+        List<Weather> weatherData = weatherService.getWeather(NUMBER_OF_DAYS_TO_PREDICT, CITY_TO_PREDICT);
+        List<Double> currencyData = currencyService.getDollarCurrency(NUMBER_OF_DAYS_TO_PREDICT);
         addData(regression, weatherData, currencyData);
         return regression.predict(weatherData.get(0).getAvgTempC());
     }
