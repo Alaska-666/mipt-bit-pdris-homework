@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.mipt.bit.homework.weathercurrencyapp.entities.CurrencyEntity;
 import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntity;
 import ru.mipt.bit.homework.weathercurrencyapp.entities.WeatherEntityId;
 import ru.mipt.bit.homework.weathercurrencyapp.repositories.WeatherRepository;
