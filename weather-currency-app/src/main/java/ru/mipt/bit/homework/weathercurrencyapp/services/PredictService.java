@@ -13,8 +13,8 @@ import java.util.stream.IntStream;
 public class PredictService {
     private final WeatherService weatherService;
     private final CurrencyService currencyService;
-    private final static int numberOfDaysToPredict = 8;
-    private final static String cityToPredict = "Moscow";
+    private static final int numberOfDaysToPredict = 8;
+    private static final String cityToPredict = "Moscow";
 
     public PredictService(WeatherService weatherService, CurrencyService currencyService) {
         this.weatherService = weatherService;
