@@ -33,4 +33,13 @@ public class PredictService {
         addData(regression, weatherData, currencyData);
         return regression.predict(weatherData.get(0).getAvgTempC());
     }
+
+    public WeatherService getWeatherService() {
+        return weatherService;
+    }
+
+    public CurrencyService getCurrencyService() {
+        return currencyService;
+    }
+
 }
