@@ -16,10 +16,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class WeatherServiceTest {
     @Autowired
     private WeatherService weatherService;
+    private static final String BASE_CITY = "Moscow";
 
     @Test
     void getWeather() {
-        List<Weather> weathers = weatherService.getWeather(2, "Moscow");
+        List<Weather> weathers = weatherService.getWeather(2, BASE_CITY);
         assertEquals(2, weathers.size());
         for (Weather weather : weathers) {
             assertEquals(String.format("Weather{maxTempC=%.1f, minTempC=%.1f, avgTempC=%.1f, maxWindMph=%.1f, " +
@@ -33,21 +34,19 @@ class WeatherServiceTest {
 
     @Test
     void getWeatherNullDays() {
-        List<Weather> weathers = weatherService.getWeather(0, "Moscow");
+        List<Weather> weathers = weatherService.getWeather(0, BASE_CITY);
         assertTrue(weathers.isEmpty());
     }
 
     @Test
     void getWeatherMinusDays() {
-        List<Weather> weathers = weatherService.getWeather(-9, "Moscow");
+        List<Weather> weathers = weatherService.getWeather(-9, BASE_CITY);
         assertTrue(weathers.isEmpty());
     }
 
     @Test
     void getWeatherIncorrectCity() {
-        Exception exception = assertThrows(HttpClientErrorException.class, () -> {
-            weatherService.getWeather(2, "Magix");
-        });
+        Exception exception = assertThrows(HttpClientErrorException.class, () -> weatherService.getWeather(2, "Magix"));
         assertEquals("400 Bad Request: [{\"error\":{\"code\":1006,\"message\":\"No matching location found.\"}}]",
                 exception.getMessage());
     }
