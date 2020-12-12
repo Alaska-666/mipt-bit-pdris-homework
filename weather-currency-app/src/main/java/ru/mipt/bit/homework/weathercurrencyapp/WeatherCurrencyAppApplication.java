@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WeatherCurrencyAppApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WeatherCurrencyAppApplication.class, args);
+        SpringApplication.run(WeatherCurrencyAppApplication.class);
     }
 
 }
