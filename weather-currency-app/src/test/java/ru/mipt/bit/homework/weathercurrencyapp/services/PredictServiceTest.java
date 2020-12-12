@@ -22,9 +22,9 @@ class PredictServiceTest {
 
     @Test
     public void testConstructor() {
-       PredictService predictService = new PredictService(weatherService, currencyService);
-       assertNotNull(predictService.getCurrencyService());
-       assertNotNull(predictService.getWeatherService());
+       PredictService newPredictService = new PredictService(weatherService, currencyService);
+       assertNotNull(newPredictService.getCurrencyService());
+       assertNotNull(newPredictService.getWeatherService());
     }
 
     @Test

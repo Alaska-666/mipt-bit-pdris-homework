@@ -17,7 +17,7 @@ class CurrencyServiceTest {
     private CurrencyService currencyService;
 
     @Test
-    public void currencyForDays() {
+    public void getDollarCurrency() {
         List<Double> result = currencyService.getDollarCurrency(2);
         assertEquals(2, result.size());
         result.forEach(i -> assertTrue(70 <= i && i <= 80));
