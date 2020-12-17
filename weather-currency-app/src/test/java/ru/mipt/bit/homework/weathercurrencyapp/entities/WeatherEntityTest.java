@@ -29,7 +29,7 @@ class WeatherEntityTest {
         WeatherEntityId id = new WeatherEntityId(date, city);
         WeatherEntity weatherEntity = new WeatherEntity(id, weather);
         assertEquals(WeatherEntityId.class, weatherEntity.getId().getClass());
-        assertEquals("13/12/2020", weatherEntity.getId().getDate());
+        assertEquals(date, weatherEntity.getId().getDate());
         assertEquals(city, weatherEntity.getId().getCity());
     }
 }

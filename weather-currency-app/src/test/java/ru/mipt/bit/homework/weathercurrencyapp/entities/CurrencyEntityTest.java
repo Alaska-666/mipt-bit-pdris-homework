@@ -20,6 +20,6 @@ class CurrencyEntityTest {
     @Test
     void getData() {
         CurrencyEntity currencyEntity = new CurrencyEntity(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDate.now()), 100);
-        assertEquals("13/12/2020", currencyEntity.getData());
+        assertEquals(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDate.now()), currencyEntity.getData());
     }
 }

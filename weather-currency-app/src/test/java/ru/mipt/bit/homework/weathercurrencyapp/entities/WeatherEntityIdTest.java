@@ -15,7 +15,7 @@ class WeatherEntityIdTest {
         String city = "Paris";
         String date = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDate.now().minusDays(1));
         WeatherEntityId id = new WeatherEntityId(date, city);
-        assertEquals("12/12/2020", id.getDate());
+        assertEquals(date, id.getDate());
     }
 
     @Test
@@ -32,7 +32,7 @@ class WeatherEntityIdTest {
         String date = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDate.now());
         assertNull(id.getDate());
         id.setDate(date);
-        assertEquals("13/12/2020", id.getDate());
+        assertEquals(date, id.getDate());
     }
 
     @Test
